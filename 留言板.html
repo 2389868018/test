@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/message.css"/>
+		
+	</head>
+	<body>
+		<div id="showMsg">
+		<ul class="list">
+			<li class="msg" v-for = "( v, k) in list">
+				<img class="pic" v-bind:src="v.imgSrc"/>
+				<p class="msgCont">{{ v.message }}</p>
+				<div class="date">
+					<p>{{ v.meDate }}</p>
+					<a href="#" class="shanchu" v-on:click.stop = "delClick(v,k)">{{ v.del }}</a>
+				</div>
+			</li>
+		</ul>
+		<button class="btn" v-on:click = "btnClick">{{ but }}</button>
+		<!-- 弹出留言框 -->
+		<div class="msg_blck" v-if="msgflag">
+			<div class="msg_cont">
+				<a class="closeBtn" href="#" v-on:click.stop = "closeBtnClick" >{{ cha }}</a>
+				<textarea rows="20" cols="30" class="tarea"  v-model = "valtext"></textarea>
+				<button class="confirmBtn" v-on:click.stop = "conClick">{{ restt }}</button>
+			</div>
+
+		</div>
+	</div>
+	<script type="text/javascript" src="js/vue.js" ></script>
+	<script type="text/javascript" src="js/index.js">
+	
+	 </script>
+	</body>
+</html>
